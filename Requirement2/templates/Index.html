@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div style="text-align: center; display: flex; justify-content: center; align-content: center; flex-direction: column;">
+        <br>
+        <h1> Todo-List app </h1>
+        <br>
+        <form action="/AddTasks" method="POST">
+            <div class="form-group">
+                <label for="task" style="font-weight: bold;">Task Description</label>
+                <br>
+                <input type="text" class="form-control-lg" id="task" name="task" placeholder="Enter a task" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="background-color: blue;">
+                Add Task
+            </button>
+        </form>
+
+        <br>
+
+        <h2>Tasks:</h2>
+        <ul>
+            {%for task in tasks%}
+                <li class="list-group-item">{{ task }}</li>
+            {%else%}
+                <li>No tasks</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
